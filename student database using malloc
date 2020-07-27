@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+struct student {
+    int rollno ;
+    char name[100];
+    float percentage ;
+};
+
+typedef struct student details; 
+
+
+int main()
+{
+    details *node ;      // this student data is for only one student 
+    
+    node=(details*)malloc(sizeof(details));
+    
+    printf("student 1 details :\n");
+    
+    printf("student rollno :");
+    scanf("%d",&node->rollno); 
+    
+    printf("student percentage :");
+    scanf("%f",&node->percentage);
+    
+     printf("student name :");
+    scanf(" %c",node->name);     //char will work only if space is given "__%c " and no use of & in char.
+
+    return 0;
+}
