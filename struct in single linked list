@@ -1,3 +1,14 @@
+struct node{          // declaring a linked list 
+    int data;
+    struct node *next;  
+ };
+ 
+ typedef struct node *node1; 
+ 
+ 
+OR
+
+
 struct LinkedList{          // declaring a linked list 
     int data;
     struct LinkedList *next;  
