@@ -1,0 +1,8 @@
+struct LinkedList{          // declaring a linked list 
+    int data;
+    struct LinkedList *next;  
+ };
+ 
+ typedef struct LinkedList *node; 
+ 
+ 
