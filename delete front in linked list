@@ -1,0 +1,14 @@
+
+
+struct Node* deleteFront(struct Node *head){
+    struct Node*newN;
+    if(head==NULL)
+        printf("list is empty and nothing to delete\n")
+        
+        else
+    newN = head;
+    head=head->next; //head is pointing to next node
+    free(newN);
+    return head;
+
+}
