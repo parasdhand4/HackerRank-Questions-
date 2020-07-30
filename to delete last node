@@ -1,0 +1,36 @@
+void deleteLastNode()
+{
+    struct node *toDelete, *secondLastNode;
+
+    if(head == NULL)
+    {
+        printf("List is already empty.");
+    }
+    else
+    {
+        toDelete = head;
+        secondLastNode = head;
+
+        /* Traverse to the last node of the list */
+        while(toDelete->next != NULL)
+        {
+            secondLastNode = toDelete;
+            toDelete = toDelete->next;
+        }
+
+        if(toDelete == head)
+        {
+            head = NULL;
+        }
+        else
+        {
+            /* Disconnect link of second last node with last node */
+            secondLastNode->next = NULL;
+        }
+
+        /* Delete the last node */
+        free(toDelete);
+
+        printf("SUCCESSFULLY DELETED LAST NODE OF LIST\n");
+    }
+}
