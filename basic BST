@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+
+typedef struct bst
+{
+    int value;
+    struct bst *left;
+    struct bst *right;
+}T;
+
+T *temp=NULL, *newnode;
+T *tree;                                   // had globally declared as NULL previously
+
+T* createnode(int val)
+{
+    newnode=(T*)malloc(sizeof(T));
+    if(newnode==NULL)
+    {
+        printf("Memory not allocated! \n");
+    }
+    else
+    {
+        newnode->value=val;
+        newnode->right=NULL;
+        newnode->left=NULL;
+    }
+    return newnode;
+}
+
+T * insert_tree(T *tree, int val)
+{
+    if(tree==NULL)
+    {
+        newnode=createnode(val);
+        tree=newnode;
+        return tree;
+    }
+
+    if (val < tree->value)
+    {
+        tree->left=insert_tree(tree->left,val);
+    }
+    else if(val > tree->value)
+    {
+        tree->right=insert_tree(tree->right, val);
+    }
+    return tree;
+}
+
+void display_preorder(T *tree) //changed to accept parameter
+{
+    if(tree)
+    {
+        printf("%d \n", tree->value);
+        display_preorder(tree->left);
+        display_preorder(tree->right);
+    }
+}
+
+int main(void)
+{
+    tree = insert_tree(tree, 12);
+    tree = insert_tree(tree, 23);
+    tree = insert_tree(tree, 56);
+    tree = insert_tree(tree, 78);
+    display_preorder(tree);
+    getchar();
+    return 0;
+}
